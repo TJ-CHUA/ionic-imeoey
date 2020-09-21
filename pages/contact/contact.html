@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Calculator
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+  <h2>Credit Card Balance Transfer Calculator</h2>
+  <ion-item>
+    <ion-label>Balance Transfer Amount</ion-label>
+    <ion-input type="number" [(ngModel)]="initBalanceTransfer"></ion-input>
+  </ion-item><ion-item>
+    <ion-label>Payment Terms</ion-label>
+    <ion-input type="number" [(ngModel)]="initPaymentTerm"></ion-input>
+  </ion-item>
+
+  
+  <ion-item *ngIf="TotalInterestPayable">
+<h3> Total Interest Payable: {{TotalInterestPayable | currency: '&#8369;'}} </h3>
+</ion-item>
+  <ion-item>
+  </ion-item>
+ <ion-item *ngIf="MonthlyPayment">
+<h3> Monthly Payment: {{MonthlyPayment | currency: '&#8369;'}} </h3>
+</ion-item>
+<ion-item *ngIf="TotalAmount">
+<h3> Total Amount: {{TotalAmount | currency: '&#8369;'}} </h3>
+</ion-item>
+ <button ion-button color="primary" (click)="compute()">Compute</button>
+  </ion-list>
+</ion-content>
+
